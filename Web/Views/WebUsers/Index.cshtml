@@ -1,0 +1,90 @@
+﻿@model IEnumerable<Domain.Entities.WebUser>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LogUserId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LogUserPassword)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RegTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RegIp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LoginIp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ErrorLoginCount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsLock)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LockTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Token)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LogUserId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LogUserPassword)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegIp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoginIp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ErrorLoginCount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsLock)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LockTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Token)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<PageList-wy page-index="@ViewBag.pageindex" total-rs="@ViewBag.total" ></PageList-wy>
